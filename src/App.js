@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useCallback } from "react";
 
 function BinarySearch() {
-  const [array, setArray] = useState([2, 3, 5, 7, 8, 10, 12, 15, 18, 20]);
+  const [array, setArray] = useState([1, 3, 5, 7, 8, 10, 12, 15, 18, 20]);
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState("");
 
-  const binarySearch = (arr, value) => {
+  const binarySearch = useCallback((arr, value) => {
     let startIndex = 0;
     let endIndex = arr.length - 1;
 
@@ -21,7 +21,7 @@ function BinarySearch() {
       }
     }
     return -1;
-  };
+  },[]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
